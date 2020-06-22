@@ -3,8 +3,10 @@ package com.strivere.listviewapps
 import android.content.res.TypedArray
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +26,11 @@ class MainActivity : AppCompatActivity() {
 
         prepare()
         addItem()
+
+        listView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            Toast.makeText(this@MainActivity, heroes[position].name, Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     private fun prepare(){
